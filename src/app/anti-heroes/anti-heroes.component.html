@@ -1,0 +1,10 @@
+
+<h2>My Anti-Heroes</h2>
+<ul class="anti-heroes">
+  <li *ngFor="let antihero of antiheroes" 
+  [class.selected]="antihero === selectedAntiHero"
+  (click)="onSelect(antihero)">
+    <span class="badge">{{antihero.id}}</span> {{antihero.name}}
+  </li>
+</ul>
+<app-anti-detail [hero]="selectedHero"></app-anti-detail>
