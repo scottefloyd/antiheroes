@@ -1,4 +1,5 @@
 <h2>My Anti-Heroes</h2>
+<p-messages></p-messages>
 <div>
   <label>Hero name:
     <input #antiheroName />
@@ -13,6 +14,6 @@
     <a routerLink="/detail/{{antihero.id}}">
       <span class="badge">{{antihero.id}}</span> {{antihero.name}}
     </a>
-    <button class="delete" title="delete antihero" (click)="delete(antihero)">x</button>
+    <button class="delete" pButton title="delete antihero" (click)="delete(antihero)">x</button>
   </li>
 </ul>

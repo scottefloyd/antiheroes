@@ -1,4 +1,13 @@
 
+ :host ::ng-deep button {
+  margin-right: .25em;
+}
+
+:host ::ng-deep .ui-message,
+:host ::ng-deep .ui-inputtext {
+  margin-right: .25em;
+}
+
 .anti-heroes {
     margin: 0 0 2em 0;
     list-style-type: none;
