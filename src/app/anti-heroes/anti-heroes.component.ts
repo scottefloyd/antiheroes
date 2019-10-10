@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AntiHero } from '../anti-hero';
 import { AntiService } from '../anti.service';
+import {Message} from 'primeng//api';
+import {MessageService} from 'primeng/api';
+
 
 @Component({
   selector: 'app-anti-heroes',
@@ -11,7 +14,9 @@ export class AntiheroesComponent implements OnInit {
 
   antiheroes: AntiHero[];
 
-  constructor(private antiService: AntiService) { }
+  constructor(
+    private antiService: AntiService,
+    private _message: MessageService) { }
 
   ngOnInit() {
     this.getAntiHeroes();
@@ -23,6 +28,8 @@ export class AntiheroesComponent implements OnInit {
   }
 
   add(name: string): void {    
+    this._message.add({severity: 'success', summary: `Congrats! you just added ${name} to Antiheros`, detail: ''});
+    setTimeout(() => this._message.clear(), 2000);
     name = name.trim();
     if (!name) { return; }
     this.antiService.addAntiHero({ name } as AntiHero)
@@ -32,6 +39,8 @@ export class AntiheroesComponent implements OnInit {
   }
 
   delete(antihero: AntiHero): void {    
+    this._message.add({severity: 'warn', summary: `Congrats! you just destroyed Antihero ${antihero.name}s from existence`, detail: ''});
+    setTimeout(() => this._message.clear(), 2000);
     this.antiService.deleteAntiHero(antihero.id).subscribe();
     this.antiheroes = this.antiheroes.filter(ah => ah !== antihero);
 
