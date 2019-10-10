@@ -1,0 +1,11 @@
+<h3>Top Anti-Heroes</h3>
+<div class="grid grid-pad">
+  <a *ngFor="let anti of antiheroes" class="col-1-4"
+      routerLink="/detail/{{anti.id}}">
+    <div class="module antihero">
+      <h4>{{anti.name}}</h4>
+    </div>
+  </a>
+</div>
+
+<app-antihero-search></app-antihero-search>
